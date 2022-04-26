@@ -1,0 +1,24 @@
+let arr=[];
+console.log(arr);
+let elearr=[1,2,3,4,"hello",'c',4.5]
+console.log(elearr);
+console.log("Element at 4th index:"+elearr[4]);
+elearr[3]="Nothing";
+console.log(elearr);
+console.log("####################################");
+console.log("Array befor push:"+elearr);
+elearr.push("New item ");
+console.log("Array after push: "+elearr);
+console.log("Array before pop: "+elearr);
+elearr.pop();
+console.log("Array after pop: "+elearr);
+elearr.pop();
+console.log("Array after pop: "+elearr);
+console.log("Array before shift: "+elearr);
+elearr.shift();
+console.log("Array after shift: "+elearr);
+console.log("Array before unshift: "+elearr);
+elearr.unshift("New item");
+console.log("Array after unshift: "+elearr);
+let len=elearr.length;
+console.log(len); 
