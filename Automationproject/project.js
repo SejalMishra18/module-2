@@ -1,40 +1,34 @@
-const puppeteer=require("puppeteer");
-let input=process.argv.slice(2);
-(async function()
-{
-let browserpromise=await puppeteer.launch({headless:false,defaultViewport:null,args:['--start-fullscreen']});
-let page=await browserpromise.newPage();
-await page.goto("https://www.youtube.com/");
-await page.waitForSelector("#search-input");
-await page.click("#search-input")
-await page.type("#search-input",input,{delay:100});
-await page.keyboard.press('Enter');
-await page.waitForSelector("#title-wrapper");
-await page.click("#title-wrapper");
-// let ans = await  checkAd(page)
-await page.waitForSelector(".ytp-ad-skip-button ytp-button");
-await page.click(".ytp-ad-skip-button ytp-button");
-/*await page.evaluate(function()
-{
-   let eleexist= document.querySelectorAll(".ytp-ad-text.ytp-ad-skip-button-text");
-   if(eleexist==null)
-   {
-       return;
-   }
-   else{
-     page.waitForSelector(".ytp-ad-text.ytp-ad-skip-button-text");
-     page.click(".ytp-ad-text.ytp-ad-skip-button-text");
-   }
-})*/
+let puppeteer=require("puppeteer");
+let user=process.argv[2];
+let msg=process.argv.slice(3);
 
+   
+(async function(){
+    let id='developer13142000';
+let pass='abc12345'
+let browser=await puppeteer.launch({headless:false,defaultViewport:null });
+ let page = await browser.newPage();
+ 
+  await page.goto("https://www.instagram.com/ ");
+  await page.waitForSelector('input[name="username"]');
+  await page.type('input[name="username"]',id,{delay:100});
+  await page.type('input[aria-label="Password"]',pass,{delay:100});
+  await page.click('.sqdOP.L3NKy.y3zKF');
+  await page.waitForSelector('.olLwo');
+  await page.click('.sqdOP.L3NKy.y3zKF');
+  await page.waitForSelector('.aOOlW.HoLwm ');
+  await page.click('.aOOlW.HoLwm ');
+  await page.waitForSelector('svg[aria-label="Messenger"]');
+  await page.click('svg[aria-label="Messenger"]  ');
+await page.waitForSelector('.sqdOP.L3NKy.y3zKF');
+await page.click('.sqdOP.L3NKy.y3zKF');
+await page.waitForSelector('.j_2Hd.uMkC7.M5V28');
+await page.type('.j_2Hd.uMkC7.M5V28',user);
+await page.waitForSelector('svg[aria-label="Toggle selection"]');
+await page.click('svg[aria-label="Toggle selection"]');
+await page.waitForSelector('.rIacr');
+await page.click('.rIacr');
+await page.waitForSelector('textarea[placeholder="Message..."]');
+await page.type('textarea[placeholder="Message..."]',msg,{delay:200});
+await page.keyboard.press("Enter");
 })();
-
-
-/*async function checkAd(page){
-   let ans= await page.evaluate((page)=>{
-        let data = document.querySelector('[class="ytp-ad-preview-image"]')
-        return JSON.stringify({data})
-    },page)
-    console.log(ans)
-
-}*/
