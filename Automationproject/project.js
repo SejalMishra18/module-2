@@ -6,7 +6,7 @@ let msg=process.argv.slice(3);
 (async function(){
     let id='developer13142000';
 let pass='abc12345'
-let browser=await puppeteer.launch({headless:false,defaultViewport:null });
+let browser=await puppeteer.launch({headless:false,defaultViewport:null,args:['--start-fullscreen'] });
  let page = await browser.newPage();
  
   await page.goto("https://www.instagram.com/ ");
@@ -29,6 +29,6 @@ await page.click('svg[aria-label="Toggle selection"]');
 await page.waitForSelector('.rIacr');
 await page.click('.rIacr');
 await page.waitForSelector('textarea[placeholder="Message..."]');
-await page.type('textarea[placeholder="Message..."]',msg,{delay:200});
+await page.type('textarea[placeholder="Message..."]',msg,{delay:1000});
 await page.keyboard.press("Enter");
 })();
